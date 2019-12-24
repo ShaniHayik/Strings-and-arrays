@@ -1,41 +1,22 @@
+#include "isort.h"
+#include <stdio.h>
 
-//this function moves i numbers to the right stars with where 
+
 void shift_element(int* arr,int i){
-    for(int k = i; k>0 ;k--){
-        *(arr+k) = *(arr+k-1);
+    for(int* j = arr+i; j>arr ;j--){
+        *(j) = *(j-1);
     }
 }
 
 
-
-//this function does insertion sort to the array
-void insertion_sort(int *arr, int len) {
-	int i, j, k; 
-    // Sort the numbers using pointers 
-    for (i = 0; i < len; i++) { 
-        for (j = i + 1; j < len; j++) { 
-            if (*(arr + j) < *(arr + i)) { 
-                k = *(arr + i); 
-                *(arr + i) = *(arr + j); 
-                *(arr + j) = k; 
-            } 
-        } 
+void insertion_sort(int* arr, int len){
+    for(int *i = arr+1; i<arr+len; i++){
+        for(int *j=i-1; j>=arr; j--){
+            if(*(j+1) < *j){
+                int temp = *(j+1);
+                shift_element(j,1);
+                *j= temp;
+            }
+        }
     }
 }
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    

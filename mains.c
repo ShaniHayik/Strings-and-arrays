@@ -1,43 +1,40 @@
 #include "txtfind.h"
 #include <stdio.h>
 #include <string.h>
+
 #define LINE 256
 #define WORD 30
 #define FILE 250
 
 
-int main () {
+int main()
+{
+    // line
+    char line[LINE];
+    // the word to find
+    char word[WORD];
+    // a/b
+    char sign;
 
-  char line[LINE-1], a[LINE-1];
-  char c;
-  int i=0;
-  gets(line);
-  int line_len = strlen(line);
-    
-    while(i<line_len){
-        if(line[i]==' '){
-            c=line[i+1];
-            break;
-        }
-        a[i]=line[i];
-        i++;
-    }
+    // get the first word (cat)
+    scanf("%s", word);
+    scanf(" %c", &sign);
 
-    gets(line);
-    if(c=='a'){
-        print_lines(a);
-    }
-    if(c=='b'){
-        print_similar_words(a);
-    }
-    else if ((c != 'a') && (c!='b')) {
-        printf("Please try again");
+// clear spaces and new lines
+    scanf("%c", line);
+    scanf("%c", line);
+
+    if (sign == 'a') {
+        print_lines(word);
+    } else if (sign == 'b') {
+        print_similar_words(word);
+    } else {
+        printf("Unknown action\n");
     }
 
     return 0;
 }
 
+void getWord(char* buf) {
 
-
-
-  
+}
